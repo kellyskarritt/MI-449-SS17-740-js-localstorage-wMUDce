@@ -4,14 +4,17 @@ function changeClass () {
   if (time.className === 'day-theme') {
     time.setAttribute('class', 'night-theme')
     timeStorage = 'night-theme'
+    window.localStorage.setItem('storage', timeStorage)
   } else {
     time.setAttribute('class', 'day-theme')
     timeStorage = 'day-theme'
+    window.localStorage.setItem('storage', timeStorage)
   }
 }
 
 window.onload = function () {
   document.getElementById('button').addEventListener('click', changeClass)
+  time.setAttribute('class', timeStorage)
 }
 
 window.localStorage.setItem('storage', timeStorage)
